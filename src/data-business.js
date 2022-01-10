@@ -1,18 +1,18 @@
 
 function getc (){
-    return fetch("https://breakingbadapi.com/api/characters")  
+    return fetch("https://rickandmortyapi.com/api/character")  
     .then(response => {
      return response.json();
         })
     }
 function getcu (id){
-    return fetch("https://breakingbadapi.com/api/characters/" + id)  
+    return fetch("https://rickandmortyapi.com/api/character/" + id)  
         .then(response => {
          return response.json();
         })
     }
 function getep (){
-    return fetch("https://breakingbadapi.com/api/episodes")  
+    return fetch("https://rickandmortyapi.com/api/episode")  
         .then(response => {
         return response.json();
         })
