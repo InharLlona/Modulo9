@@ -30,13 +30,13 @@ const createCharacterRow = character => {
   
   const createAvatarDetail = character => {
     const element = document.createElement("img");
-    element.width = 350;
+    element.width = 250;
     element.src = character.img;
   
     return element;
   };
   
-  const showCharacter = (character, cantidad) => {
+  const showCharacter = (character, cantidad, lista) => {
     console.log("character", character);
     const characterDetail = document.getElementById("character-detail");
   
@@ -51,6 +51,9 @@ const createCharacterRow = character => {
     );
     characterDetail.appendChild(
       createParagraph("Appearences: " + cantidad)
+    );
+    characterDetail.appendChild(
+      createParagraph("Episode Lista: " + lista)
     );
   };
   

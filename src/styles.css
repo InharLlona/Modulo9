@@ -15,8 +15,9 @@ body {
     padding: 25px;
     background-color: #666;
     color: white;
-    font-size: 140%;
+    font-size: 90%;
     height: 100vh;
+    max-width: 50%;
   }
   
   .thumbnail {

@@ -6,21 +6,33 @@ import * as DB from "./data-business.js";
   const nodes = [];
   for(let datas of data){
       const node = utils.createCharacterRow(datas)
+      console.log(datas)
       node.onclick = () =>{
             var qt = 0;
             DB.getep().then(dato =>{
+                let lista = "";
+                let first = 1;
                 for(let datos of dato){
+                    console.log(datos)
                    for(var i=0;i<datos.characters.length-1;i++){
-                       if (datos.characters[i] === datas.name) qt++;
+                       if (datos.characters[i] === datas.name) 
+                       {
+                       qt++;
+                       let coma = ",";
+                       if (first){
+                           coma="";
+                           first = 0;
+                        }
+                       lista = lista + coma + datos.title;
+                       }
                    }
                 }
+                console.log(lista)
                 DB.getcu(datas.char_id).then(data => {  
-                    utils.showCharacter(data[0], qt)
+                    utils.showCharacter(data[0], qt, lista)
                 })
             })
       }
-      
-      //mostrar(datas.char_id);
       nodes.push(node);   
   }
   for(let node of nodes){
@@ -31,11 +43,4 @@ import * as DB from "./data-business.js";
 
     
     
-    function crearelementos (felemento,fclase,fidentificador,fcontenedor){
-        var tArea = document.createElement(felemento);
-        tArea.setAttribute("class",fclase);
-        tArea.setAttribute("id",fidentificador);
-        var elemento = document.getElementById(fcontenedor);
-        elemento.appendChild(tArea);
-    }     
- 
+    
